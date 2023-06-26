@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.72.0">
+
+  <title>Album example · Bootstrap</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-white">
+
+  <header class="bg-gray-900">
+    <div class="container mx-auto">
+      <div class="flex items-center justify-between py-4">
+        <a href="#" class="text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2"
+            viewBox="0 0 24 24">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+            <circle cx="12" cy="13" r="4" />
+          </svg>
+          <strong class="text-lg text-white">Album</strong>
+        </a>
+        <button class="md:hidden focus:outline-none text-white" onclick="openModal('navModal')">
+          <span class="sr-only">Toggle navigation</span>
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="hidden md:flex justify-end mt-4">
+        <a href="#" class="text-gray-300 hover:text-white px-4 py-2">Home</a>
+        <a href="#" class="text-gray-300 hover:text-white px-4 py-2">About</a>
+        <a href="#" class="text-gray-300 hover:text-white px-4 py-2">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu Modal -->
+    <div id="navModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+      <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+          <div class="absolute inset-0 bg-gray-500 opacity-75" onclick="closeModal('navModal')"></div>
+        </div>
+
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+        <div
+          class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-y-auto shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+          <nav class="flex flex-col gap-3">
+            <a href="#" class="text-gray-800 hover:text-gray-600 px-4 py-2">Home</a>
+            <a href="#" class="text-gray-800 hover:text-gray-600 px-4 py-2">About</a>
+            <a href="#" class="text-gray-800 hover:text-gray-600 px-4 py-2">Contact</a>
+          </nav>
+          <div class="text-center mt-4">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              onclick="closeModal('navModal')">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove("hidden");
+      modal.setAttribute("aria-hidden", "false");
+      modal.removeAttribute("tabindex");
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.add("hidden");
+      modal.setAttribute("aria-hidden", "true");
+      modal.setAttribute("tabindex", "-1");
+    }
+  </script>
+
+  <main>
+    <!-- Jumbotron -->
+    <section class="py-20 text-center">
+      <div class="container mx-auto">
+        <div class="md:w-2/3 mx-auto">
+          <h1 class="text-4xl font-light leading-tight">Album example</h1>
+          <p class="text-gray-500 text-lg mt-4">Something short and leading about the collection below—its contents, the
+            creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+          <p class="mt-8">
+            <a href="#" class="px-8 py-3 bg-blue-500 text-white rounded hover:bg-blue-600"
+              onclick="openModal('mainModal')">Main call to action</a>
+            <a href="#" class="ml-4 px-8 py-3 bg-gray-100 text-gray-800 rounded hover:bg-gray-200"
+              onclick="openModal('secondaryModal')">Secondary action</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="py-20 bg-gray-100">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+          <!-- CARDS SECTION -->
+          <div class="shadow">
+            <img src="https://via.placeholder.com/300" alt="Thumbnail" class="w-full">
+            <div class="px-6 py-4">
+              <div class="text-xl font-medium">Card Title</div>
+              <p class="text-gray-600">This is a wider card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.</p>
+              <div class="mt-4">
+                <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                  onclick="openModal('cardModal1')">View</button>
+                <button type="button" class="ml-2 px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
+                  onclick="closeModal('cardModal1')">Close</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow">
+            <img src="https://via.placeholder.com/300" alt="Thumbnail" class="w-full">
+            <div class="px-6 py-4">
+              <div class="text-xl font-medium">Card Title</div>
+              <p class="text-gray-600">This is a wider card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.</p>
+              <div class="mt-4">
+                <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                  onclick="openModal('cardModal2')">View</button>
+                <button type="button" class="ml-2 px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
+                  onclick="closeModal('cardModal2')">Close</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow">
+            <img src="https://via.placeholder.com/300" alt="Thumbnail" class="w-full">
+            <div class="px-6 py-4">
+              <div class="text-xl font-medium">Card Title</div>
+              <p class="text-gray-600">This is a wider card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.</p>
+              <div class="mt-4">
+                <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                  onclick="openModal('cardModal3')">View</button>
+                <button type="button" class="ml-2 px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
+                  onclick="closeModal('cardModal3')">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modals -->
+  <div id="mainModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+        <div class="absolute inset-0 bg-gray-500 opacity-75" onclick="closeModal('mainModal')"></div>
+      </div>
+
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <div
+        class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-y-auto shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+        <div class="modal-content">
+          <h2 class="text-2xl font-bold mb-4">Main Modal Title</h2>
+          <p class="mb-4">This is the content for the main modal.</p>
+          <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            onclick="closeModal('mainModal')">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="secondaryModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+        <div class="absolute inset-0 bg-gray-500 opacity-75" onclick="closeModal('secondaryModal')"></div>
+      </div>
+
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <div
+        class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-y-auto shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+        <div class="modal-content">
+          <h2 class="text-2xl font-bold mb-4">Secondary Modal Title</h2>
+          <p class="mb-4">This is the content for the secondary modal.</p>
+          <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            onclick="closeModal('secondaryModal')">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cardModal1" class="fixed z-10 inset-0 overflow-y-auto hidden">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+        <div class="absolute inset-0 bg-gray-500 opacity-75" onclick="closeModal('cardModal1')"></div>
+      </div>
+
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <div
+        class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-y-auto shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+        <div class="modal-content">
+          <h2 class="text-2xl font-bold mb-4">Card Modal 1</h2>
+          <p class="mb-4">This is the content for the card modal 1.</p>
+          <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            onclick="closeModal('cardModal1')">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cardModal2" class="fixed z-10 inset-0 overflow-y-auto hidden">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+        <div class="absolute inset-0 bg-gray-500 opacity-75" onclick="closeModal('cardModal2')"></div>
+      </div>
+
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <div
+        class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-y-auto shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+        <div class="modal-content">
+          <h2 class="text-2xl font-bold mb-4">Card Modal 2</h2>
+          <p class="mb-4">This is the content for the card modal 2.</p>
+          <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            onclick="closeModal('cardModal2')">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cardModal3" class="fixed z-10 inset-0 overflow-y-auto hidden">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+        <div class="absolute inset-0 bg-gray-500 opacity-75" onclick="closeModal('cardModal3')"></div>
+      </div>
+
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <div
+        class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-y-auto shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+        <div class="modal-content">
+          <h2 class="text-2xl font-bold mb-4">Card Modal 3</h2>
+          <p class="mb-4">This is the content for the card modal 3.</p>
+          <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            onclick="closeModal('cardModal3')">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("navbarHeader");
+      menu.classList.toggle("hidden");
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove("hidden");
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.add("hidden");
+    }
+  </script>
+
+  <section>
+    <div class="container mx-auto">
+      <div class=" justify-center items-center flex flex-wrap">
+
+        <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg"
+          id="svg_refl">
+          <use href="#everything">
+          </use>
+          <g filter="url(#reflection)">
+            <use href="#everything" transform="scale (1.1, -.33) translate(0 -512)" transform-origin="center"
+              opacity="0.15" />
+          </g>
+          <defs>
+            <g id="everything">
+              <use href="#wave" x="256" y="196" />
+              <use href="#morph1" x="256" y="196" />
+              <use href="#morph2" x="256" y="196" />
+              <use href="#morph3" x="256" y="196" />
+              <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s"
+                repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.7 0 0.3 1; 0.7 0 0.3 1"
+                values="0 -16; 0 16; 0 -16" />
+            </g>
+
+            <ellipse id="wave" stroke-width="12" stroke="#c3abd1">
+              <animate attributeName="rx" dur="1s" repeatCount="indefinite" calcMode="spline" begin="100ms"
+                keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1"
+                values="96;48;132;182;182" />
+              <animate attributeName="ry" dur="2s" repeatCount="indefinite" calcMode="spline" begin="100ms"
+                keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1"
+                values="96;64;92;182;182" />
+              <animate attributeName="opacity" dur="2s" repeatCount="indefinite" calcMode="linear" begin="100ms"
+                keyTimes="0;0.74;0.75;0.9;1" values="0;0;1;0;0" />
+              <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="8s"
+                repeatCount="indefinite" />
+            </ellipse>
+            <ellipse id="morph1" rx="96" ry="96" stroke-width="12" stroke="#c3abd1">
+              <animate attributeName="rx" dur="2s" repeatCount="indefinite" calcMode="spline" begin="100ms"
+                keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1"
+                values="96;48;132;90;96" />
+              <animate attributeName="ry" dur="2s" repeatCount="indefinite" calcMode="spline" begin="100ms"
+                keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1"
+                values="96;64;92;90;96" />
+              <animate attributeName="stroke" dur="2s" repeatCount="indefinite" begin="100ms" keyTimes="0;0.65;0.75;1"
+                values="#c3abd1;#db11a9;#908bbf;#c3abd1" />
+              <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="8s"
+                repeatCount="indefinite" />
+            </ellipse>
+            <ellipse id="morph2" rx="76" ry="76" stroke-width="12" stroke="#908bbf">
+              <animate attributeName="rx" dur="20s" repeatCount="indefinite" calcMode="spline" begin="50ms"
+                keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1"
+                values="76;32;102;70;76" />
+              <animate attributeName="ry" dur="20s" repeatCount="indefinite" calcMode="spline" begin="50ms"
+                keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1"
+                values="76;44;72;70;76" />
+              <animate attributeName="stroke" dur="20s" repeatCount="indefinite" begin="100ms" keyTimes="0;0.65;0.75;1"
+                values="#db11a9;#908bbf;#332765;#db11a900" />
+              <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="8s"
+                repeatCount="indefinite" />
+            </ellipse>
+            <ellipse id="morph3" rx="56" ry="56" stroke-width="12" stroke="#332765" fill="#332765">
+              <animate attributeName="rx" dur="2s" repeatCount="indefinite" calcMode="spline"
+                keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1"
+                values="56;20;72;50;56" />
+              <animate attributeName="ry" dur="2s" repeatCount="indefinite" calcMode="spline"
+                keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1"
+                values="56;20;42;50;56" />
+              <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="2s"
+                repeatCount="indefinite" />
+            </ellipse>
+
+            <filter id="reflection">
+              <feTurbulence id="refl_turb" type="turbulence" numOctaves="2" result="turbulence" />
+              <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="32" xChannelSelector="G"
+                yChannelSelector="R" />
+              <animate id="anim_turb" dur="100s" href="#refl_turb" attributeName="baseFrequency"
+                repeatCount="indefinite" values="0.005 0.05; 0.003 0.005; 0.005 0.05" />
+            </filter>
+
+            <linearGradient id="fresnel" gradientTransform="rotate(90)">
+              <stop offset="0" stop-color="#db11a900" />
+              <stop offset="1" stop-color="#db11a900" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="text-center bg-gray-200 py-5">
+    <div class="container mx-auto">
+      <p class="text-xs text-gray-500 mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="text-xs text-gray-500 mb-1">Album example is &copy; Bootstrap, but please download and customize it for
+        yourself!</p>
+      <p class="text-xs text-gray-500 mb-0">
+        New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a
+          href="/docs/5.0/getting-started/introduction/">getting started guide</a>.
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
